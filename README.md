@@ -25,7 +25,7 @@ You never need to undistort sessions yourself; every script does it on the fly.
 motif-model-roadmark-detection/
 ├── README.md
 ├── .gitignore
-├── .gitmodules                          MotifE2E_Demo submodule
+├── .gitmodules                          submodules: MotifE2E_Demo, mmcv, mmdetection
 ├── Roadmarks/                           code
 │   ├── predict.py
 │   ├── hdmap_gt.py
@@ -44,10 +44,10 @@ motif-model-roadmark-detection/
 │       └── setup_mmdet_env.sh
 ├── prep/                                vehicle calibration (*__camera_config.json, ...)
 ├── MotifE2E_Demo/                       git submodule (internal): camera calibration code
+├── mmcv/                                git submodule, open-mmlab/mmcv v2.1.0 (patched and built by setup_mmdet_env.sh)
+├── mmdetection/                         git submodule, open-mmlab/mmdetection v3.3.0 (main @ cfd5d3a9)
 │
 │   created locally, git-ignored:
-├── mmdetection/                         cloned by setup_mmdet_env.sh (v3.3.0)
-├── mmcv/                                cloned, patched and built by setup_mmdet_env.sh (v2.1.0)
 ├── checkpoints/                         released checkpoint, copied from the server
 ├── roadmark_dataset_202/                built dataset (about 97 GB), only to retrain
 └── work_dirs/                           training runs and evaluation outputs
@@ -67,9 +67,10 @@ motif-model-roadmark-detection/
 | `Roadmarks/event_eval.py` | Marking-level score from the `infer_sessions.py` output: found %, wrong type, false alarms. |
 | `Roadmarks/export_checkpoint.py` | Turns a training checkpoint into a small release checkpoint (weights and class names only). |
 | `Roadmarks/run_undistort.py` | Not needed: undistorts whole sessions (all 6 cameras) to disk. Kept for other uses. |
-| `Roadmarks/env/setup_mmdet_env.sh` | Creates the conda env `mmdet`: torch 2.7.1 + CUDA 12.8, mmcv 2.1.0 built from source, MMDetection 3.3.0. |
+| `Roadmarks/env/setup_mmdet_env.sh` | Creates the conda env `mmdet`: torch 2.7.1 + CUDA 12.8; patches and builds the `mmcv` submodule from source and installs the `mmdetection` submodule. |
 | `prep/` | Vehicle calibration used to undistort the front camera and to project the HD map. |
 | `MotifE2E_Demo/` | Submodule. Its calibration code (`tools/data_pipeline`) computes the undistortion maps. |
+| `mmcv/`, `mmdetection/` | Submodules pinned to the exact versions used for training. The only local change, an AMP fix in `mmcv/ops/nms.py`, is applied by the setup script. |
 
 ---
 
@@ -78,7 +79,7 @@ motif-model-roadmark-detection/
 ```bash
 git clone --recurse-submodules https://github.com/ingeniously/Roadmarks-detection-model.git motif-model-roadmark-detection
 cd motif-model-roadmark-detection
-# already cloned without the submodule?  git submodule update --init
+# already cloned without the submodules?  git submodule update --init
 
 # conda env "mmdet". Takes about 15 min because mmcv is compiled.
 # The default is an RTX 50xx GPU (sm_120); for other GPUs set ARCH, e.g. ARCH=8.6 (RTX 30xx) or ARCH=8.9 (RTX 40xx).

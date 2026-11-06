@@ -1,3 +1,11 @@
 [submodule "MotifE2E_Demo"]
 	path = MotifE2E_Demo
 	url = https://github.com/motifdrive/MotifE2E_Demo.git
+[submodule "mmcv"]
+	path = mmcv
+	url = https://github.com/open-mmlab/mmcv.git
+	ignore = dirty
+[submodule "mmdetection"]
+	path = mmdetection
+	url = https://github.com/open-mmlab/mmdetection.git
+	ignore = dirty

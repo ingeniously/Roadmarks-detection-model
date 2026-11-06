@@ -14,9 +14,5 @@ work_dirs/
 roadmark_dataset*/
 out/
 
-# open-mmlab repos: cloned, patched and built by Roadmarks/env/setup_mmdet_env.sh
-mmcv/
-mmdetection/
-
 # stray local copies
 MotifE2E_Demo copy/
