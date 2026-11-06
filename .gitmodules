@@ -1,0 +1,3 @@
+[submodule "MotifE2E_Demo"]
+	path = MotifE2E_Demo
+	url = https://github.com/motifdrive/MotifE2E_Demo.git
