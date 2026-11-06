@@ -11,7 +11,7 @@ map; nothing is labelled by hand.
 | Input | Front-camera image, 1920×1536: raw fisheye (undistorted on the fly) or already undistorted (fisheye, alpha = 0) |
 | Output | Class, score, box and mask polygon for each marking |
 | Speed (RTX 5090) | 30 ms per frame end to end in fp32 (about 33 FPS); the network alone takes 10 ms |
-| Released checkpoint | `rtmdet-ins_s_roadmark_v1.pth`, about 41 MB, kept on the data server (see [Checkpoint](#checkpoint)) |
+| Released checkpoint | `roadmark_checkpoint_v1.pth`, about 94 MB, kept on the data server (see [Checkpoint](#checkpoint)) |
 
 Most users only need to **run the model on images**: see [Inference only](#1-inference-only).
 To rebuild the dataset, retrain and redo all evaluations: see [Reproduce everything](#2-reproduce-everything).
@@ -144,13 +144,10 @@ python Roadmarks/predict.py --ckpt checkpoints/rtmdet-ins_s_roadmark_v1.pth --in
 ## 2. Reproduce everything
 
 Data is read from the mounted server and everything is written locally inside `motif-model-roadmark-detection/`.
-**There is no separate undistortion step:** the scripts read the raw fisheye frames from the server and undistort
-them on the fly with the calibration in `prep/`.
 
 ### 2.1 Build the dataset
 
 The dataset uses the 202 sessions of the e2e export, keeping only frames with an arrow, crosswalk or stop line.
-Building it takes several hours, mostly spent reading images over sshfs.
 
 ```bash
 python Roadmarks/build_roadmark_dataset.py \
