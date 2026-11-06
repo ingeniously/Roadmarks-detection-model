@@ -1,0 +1,26 @@
+{
+  "vehicle_dimension": {
+    "vehicle_width": 1.9,
+    "vehicle_length": 4.659,
+    "vehicle_height": 1.570,
+    "front_overhang": 0.860,
+    "rear_overhang": 0.785,
+    "rear_axis_height": 0.350,
+    "vehicle_maximum_width": 0
+  },
+  "steering_info": {
+    "maximum_steering_angle_left": 0,
+    "maximum_steering_angle_right": 0,
+    "steering_wheel_ratio": 0,
+    "range": [
+      {
+        "wheel_ratio": 0
+      }
+    ]
+  },
+  "wheel_pulse_information": {
+    "distance_per_pulse_tic": 0,
+    "total_tic_per_one_rotation": 0,
+    "wheel_size": 0
+  }
+}

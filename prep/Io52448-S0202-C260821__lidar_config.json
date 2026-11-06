@@ -1,0 +1,24 @@
+[
+  {
+    "Position": "LIDAR_TOP",
+    "sensor_tick": 0.1,
+    "rotation_frequency": 20,
+    "extrinsic": {
+      "tx": 1.054133696793,
+      "ty": 0.007256804478,
+      "tz": 1.960045833684,
+      "w": 0.999963432057,
+      "x": -0.003333622289,
+      "y": 0.007360770018,
+      "z": -0.002800102717
+    },
+    "range": 45,
+    "hfov": null,
+    "channels": 128,
+    "vfov_table": null,
+    "points_per_second": 600000,
+    "dropoff_general_rate": 0.0,
+    "dropoff_intensity_limit": 0.0,
+    "dropoff_zero_intensity": 0.0
+  }
+]

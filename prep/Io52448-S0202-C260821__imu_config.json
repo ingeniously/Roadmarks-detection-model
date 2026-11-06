@@ -1,0 +1,85 @@
+[
+  {
+    "Position": "IMU-OS1-LIDAR",
+    "extrinsic": {
+      "tx": 1.054133696793,
+      "ty": 0.007256804478,
+      "tz": 1.960045833684,
+      "w": 0.999963432057,
+      "x": -0.003333622289,
+      "y": 0.007360770018,
+      "z": -0.002800102717
+    },
+    "_meta": {
+      "device": "Ouster OS1 내장 IMU (LIDAR_TOP과 동일 하우징)",
+      "coordinate_origin": "차량후륜지면중심 (Vehicle Rear Axle Surface) 기준, ISO8855 축 정의 (X: 전방, Y: 좌측, Z: 상향, 우수 좌표계)",
+      "rotation_convention": "Sensor frame -> Vehicle frame, quaternion (w, x, y, z)",
+      "standard_dataset_usage": [
+        {
+          "target_table": "session_folder/generic_vehicle_dynamics_data/imu/drs_pcap",
+          "description": null
+        }
+      ],
+      "note": null,
+      "last_updated": "2026-08-18"
+    }
+  },
+  {
+    "Position": "IMU-SIR3500-RTK",
+    "extrinsic": {
+      "tx": 0.08,
+      "ty": -0.07,
+      "tz": 1.088,
+      "w": 0.7071,
+      "x": 0,
+      "y": 0,
+      "z": -0.7071
+    },
+    "usable_date": {
+      "start_date": "20260806_000000",
+      "end_date": "20260821_130000"
+    },
+    "_meta": {
+      "device": "Synerex SIR-3500 GNSS/INS 통합장비 - IMU 축",
+      "coordinate_origin": "차량후륜지면중심 (Vehicle Rear Axle Surface) 기준, ISO8855 축 정의 (X: 전방, Y: 좌측, Z: 상향, 우수 좌표계)",
+      "rotation_convention": "Sensor frame -> Vehicle frame, quaternion (w, x, y, z), yaw=270deg 장착",
+      "standard_dataset_usage": [
+        {
+          "target_table": "session_folder/generic_vehicle_dynamics_data/imu/sir3500",
+          "description": "SIR-3500 INS 자세(roll/pitch/yaw) 출력을 차량 좌표계로 환산할 때 사용. GNSS1/GNSS2(SIR3500-RTK) lever arm과 결합하여 RTK/INS 융합 pose 계산에 사용"
+        }
+      ],
+      "note": "roll=pitch=0, yaw=270deg 장착 방위.",
+      "last_updated": "2026-08-21"
+    }
+  },
+  {
+    "Position": "IMU-SIR3500-RTK",
+    "extrinsic": {
+      "tx": 0.0,
+      "ty": 0.0,
+      "tz": 1.112,
+      "w": 0,
+      "x": 0,
+      "y": 0,
+      "z": 1
+    },
+    "usable_date": {
+      "start_date": "20260821_170000",
+      "end_date": "YYYYMMDD_HHMMSS"
+    },
+    "_meta": {
+      "device": "Synerex SIR-3500 GNSS/INS 통합장비 - IMU 축",
+      "coordinate_origin": "차량후륜지면중심 (Vehicle Rear Axle Surface) 기준, ISO8855 축 정의 (X: 전방, Y: 좌측, Z: 상향, 우수 좌표계)",
+      "rotation_convention": "Sensor frame -> Vehicle frame, quaternion (w, x, y, z), yaw=180deg 장착",
+      "standard_dataset_usage": [
+        {
+          "target_table": "session_folder/generic_vehicle_dynamics_data/imu/sir3500",
+          "description": "SIR-3500 INS 자세(roll/pitch/yaw) 출력을 차량 좌표계로 환산할 때 사용. GNSS1/GNSS2(SIR3500-RTK) lever arm과 결합하여 RTK/INS 융합 pose 계산에 사용"
+        }
+      ],
+      "note": "roll=pitch=0, yaw=180deg 장착 방위.",
+      "last_updated": "2026-08-21"
+    }
+  }
+]

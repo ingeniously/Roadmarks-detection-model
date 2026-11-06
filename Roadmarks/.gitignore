@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+# heavy / local files: checkpoints live on the data server, datasets and runs stay local
+*.pth
+*.pt
+*.onnx
+*.engine
+*.mp4
+*.log
+work_dirs/
+checkpoints/
+roadmark_dataset*/
