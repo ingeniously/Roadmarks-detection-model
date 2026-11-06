@@ -1,18 +1,22 @@
-# This .gitignore is appropriate for repositories deployed to GitHub Pages and using
-# a Gemfile as specified at https://github.com/github/pages-gem#conventional
+# python
+__pycache__/
+*.pyc
 
-# Basic Jekyll gitignores (synchronize to Jekyll.gitignore)
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
+# heavy / local files: the checkpoint lives on the data server, datasets and runs stay local
+*.pth
+*.pt
+*.onnx
+*.engine
+*.mp4
+*.log
+checkpoints/
+work_dirs/
+roadmark_dataset*/
+out/
 
-# Additional Ruby/bundler ignore for when you run: bundle install
-/vendor
+# open-mmlab repos: cloned, patched and built by Roadmarks/env/setup_mmdet_env.sh
+mmcv/
+mmdetection/
 
-# Specific ignore for GitHub Pages
-# GitHub Pages will always use its own deployed version of pages-gem
-# This means GitHub Pages will NOT use your Gemfile.lock and therefore it is
-# counterproductive to check this file into the repository.
-# Details at https://github.com/github/pages-gem/issues/768
-Gemfile.lock
+# stray local copies
+MotifE2E_Demo copy/
